@@ -1,0 +1,68 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 50px;
+}
+.navbar-content {
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+}
+.website-logo {
+  height: 35px;
+  width: 40px;
+  margin: 8px;
+}
+.navbar-header {
+  display: flex;
+  align-items: center;
+}
+.nav-heading {
+  font-family: DM Sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+  color: #f7931e;
+}
+.options-button {
+  border: 0 solid;
+  background-color: transparent;
+}
+.nav-menu-options {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+}
+.nav-option {
+  font-weight: 600;
+}
+.logout-button {
+  background: #f7931e;
+  border-radius: 5px;
+  border: 0 solid;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-size: 14px;
+  padding: 10px;
+}
+.wrong-button {
+  font-weight: bold;
+  height: 23px;
+  width: 23px;
+  border: 1px solid;
+  border-radius: 15px;
+  margin-right: 20px;
+  background-color: black;
+  color: #ffffff;
+}

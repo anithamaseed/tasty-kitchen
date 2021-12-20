@@ -1,0 +1,26 @@
+.restaurant-food-container {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+}
+.restaurant-food-cost {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #334155;
+  line-height: 0;
+}
+.add-btn {
+  border: 1.44828px solid #ffa412;
+  box-sizing: border-box;
+  border-radius: 5.7931px;
+  color: #ffa412;
+}
+.add-sub-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  line-height: 0;
+  width: 100px;
+}

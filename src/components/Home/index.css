@@ -1,0 +1,55 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+}
+.home-content-container {
+  width: 92%;
+}
+.home-heading {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #183b56;
+}
+.home-content {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: #64748b;
+}
+.dropdown-section {
+  display: flex;
+  align-items: center;
+}
+.sort-heading {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #475569;
+}
+.dropdown {
+  border-style: solid;
+  border: 0px;
+}
+.sort-option {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #475569;
+}
+.sort-by-icon {
+  height: 28px;
+  margin-right: 3px;
+}

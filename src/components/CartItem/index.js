@@ -5,12 +5,12 @@ const CartItem = props => {
   const {name, rating, cost, imageUrl} = cartItemDetails
 
   return (
-    <div>
+    <li>
       <img src={imageUrl} alt="food" />
       <h1>{name}</h1>
       <p>{rating}</p>
       <p>{cost}</p>
-    </div>
+    </li>
   )
 }
 export default CartItem

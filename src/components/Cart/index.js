@@ -10,14 +10,14 @@ const Cart = () => (
       const {CartList} = value
       console.log(CartList)
       return (
-        <div>
+        <>
           <Header />
           <ul>
             {CartList.map(eachCartItem => (
               <CartItem key={eachCartItem.id} cartItemDetails={eachCartItem} />
             ))}
           </ul>
-        </div>
+        </>
       )
     }}
   </CartContext.Consumer>

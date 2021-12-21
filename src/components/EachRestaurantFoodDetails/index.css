@@ -24,3 +24,7 @@
   line-height: 0;
   width: 100px;
 }
+.cost-rating {
+  display: flex;
+  justify-content: space-evenly;
+}

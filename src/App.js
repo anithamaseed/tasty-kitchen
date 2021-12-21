@@ -29,7 +29,7 @@ class App extends Component {
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute
             exact
-            path="/restaurants-list/:id"
+            path="/restaurant/:id"
             component={RestaurantFoods}
           />
           <ProtectedRoute exact path="/cart" component={Cart} />

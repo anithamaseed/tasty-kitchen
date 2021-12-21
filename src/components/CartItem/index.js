@@ -2,15 +2,18 @@ import './index.css'
 
 const CartItem = props => {
   const {cartItemDetails} = props
-  const {name, rating, cost, imageUrl} = cartItemDetails
+  const {name, itemsCount, cost, imageUrl} = cartItemDetails
+  const totalPrice = cost * itemsCount
 
   return (
-    <li>
-      <img src={imageUrl} alt="food" />
-      <h1>{name}</h1>
-      <p>{rating}</p>
-      <p>{cost}</p>
-    </li>
+    <div className="cart-item">
+      <img className="cart-product-image" src={imageUrl} alt={name} />
+      <div className="cart-item-details-container">
+        <p className="cart-product-title">{name}</p>
+        <p className="cart-total-price">₹ {totalPrice}/-</p>
+      </div>
+    </div>
   )
 }
+
 export default CartItem

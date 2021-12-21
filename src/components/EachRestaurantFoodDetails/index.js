@@ -23,6 +23,10 @@ class EachRestaurantFoodDetails extends Component {
           addCartItem({...eachFoodDetails, itemsCount})
         }
 
+        const onClickAddButton = () => {
+          this.setState({isAddButtonClicked: true}, addItemsToCart)
+        }
+
         const onClickDecreaseItems = () => {
           if (itemsCount > 1) {
             this.setState(prevState => ({
@@ -32,10 +36,7 @@ class EachRestaurantFoodDetails extends Component {
         }
 
         const onClickIncreaseItems = () => {
-          this.setState(
-            prevState => ({itemsCount: prevState.itemsCount + 1}),
-            addItemsToCart,
-          )
+          this.setState(prevState => ({itemsCount: prevState.itemsCount + 1}))
         }
 
         return (
@@ -49,30 +50,35 @@ class EachRestaurantFoodDetails extends Component {
             </div>
             <div className="restaurant-card-content">
               <h1 className="restaurant-card-name">{name}</h1>
-              <p className="restaurant-food-cost">₹ {cost}</p>
-              <div className="rating-and-review">
-                <img
-                  src="https://res.cloudinary.com/anitha/image/upload/v1639719678/7_Rating_oiaxof.png"
-                  alt="star"
-                  className="star"
-                />
-                <p className="restaurant-card-rating">{rating}</p>
+              <div className="cost-rating">
+                <p className="restaurant-food-cost">₹ {cost}</p>
+                <div className="rating-and-review">
+                  <img
+                    src="https://res.cloudinary.com/anitha/image/upload/v1639719678/7_Rating_oiaxof.png"
+                    alt="star"
+                    className="star"
+                  />
+                  <p className="restaurant-card-rating">{rating}</p>
+                </div>
+              </div>
+              <div className="add-sub-view">
+                <button type="button" onClick={onClickDecreaseItems}>
+                  -
+                </button>
+                <p className="food-count">{itemsCount}</p>
+                <button type="button" onClick={onClickIncreaseItems}>
+                  +
+                </button>
               </div>
               {isAddButtonClicked ? (
-                <div className="add-sub-view">
-                  <button type="button" onClick={onClickDecreaseItems}>
-                    -
-                  </button>
-                  <p className="food-count">{itemsCount}</p>
-                  <button type="button" onClick={onClickIncreaseItems}>
-                    +
-                  </button>
-                </div>
+                <button type="button" className="add-btn">
+                  Added To Cart
+                </button>
               ) : (
                 <button
                   type="button"
                   className="add-btn"
-                  onClick={this.onClickAddButton}
+                  onClick={onClickAddButton}
                 >
                   ADD
                 </button>

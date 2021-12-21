@@ -85,7 +85,7 @@ class LoginForm extends Component {
         <div className="login-container">
           <h1 className="login-heading">Login</h1>
           <img
-            alt="login"
+            alt="website login"
             className="login-image"
             src="https://res.cloudinary.com/anitha/image/upload/v1638515643/Rectangle_1457_xl7gdq.jpg"
           />

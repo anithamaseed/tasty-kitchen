@@ -1,0 +1,24 @@
+.cart-item {
+  display: flex;
+  margin: 12px;
+}
+.cart-product-image {
+  height: 120px;
+  width: 200px;
+  border-radius: 12px;
+  margin: 5px;
+}
+.cart-product-title {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #183b56;
+}
+.cart-total-price {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffa412;
+}

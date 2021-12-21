@@ -61,7 +61,7 @@ class Header extends Component {
             <div className="navbar-header">
               <img
                 src="https://res.cloudinary.com/anitha/image/upload/v1638862270/websitelogo_uxorv5.png"
-                alt="website-logo"
+                alt="website logo"
                 className="website-logo"
               />
               <h1 className="nav-heading">Tasty Kitchens</h1>

@@ -1,0 +1,86 @@
+.cart-heading {
+  text-align: center;
+  font-size: 20px;
+  color: #183b56;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+}
+.h-line {
+  border-style: dashed;
+  border-width: 1px;
+  color: #183b56;
+  margin: 16px;
+}
+.order-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px;
+}
+.order-total {
+  font-size: 16px;
+  color: #183b56;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+}
+.place-order-btn-section {
+  display: flex;
+  justify-content: flex-end;
+  margin: 18px;
+}
+.place-order-btn {
+  background: #f7931e;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 0;
+  padding: 8px;
+}
+.home-page-btn {
+  background: #f7931e;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 0;
+  padding: 8px;
+  width: 160px;
+  align-self: center;
+  margin: 20px;
+}
+.order-success-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  height: 80vh;
+  padding: 22px;
+}
+.success {
+  width: 26px;
+  height: 26px;
+  align-self: center;
+  margin: 20px;
+}
+.payment-successful {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #1e293b;
+}
+.payment-content {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 24px;
+}

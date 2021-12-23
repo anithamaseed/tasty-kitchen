@@ -7,7 +7,7 @@ import {Component} from 'react'
 import './index.css'
 
 class Header extends Component {
-  state = {showOptions: false}
+  state = {showOptions: false, homeActive: true, cartActive: false}
 
   onClickLogout = () => {
     const {history} = this.props
@@ -23,41 +23,61 @@ class Header extends Component {
     this.setState({showOptions: true})
   }
 
-  renderDisplayOptions = () => (
-    <div className="nav-menu-options">
-      <ul className="nav-menu">
-        <li className="nav-option">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="nav-option">
-          <Link to="/cart">Cart</Link>
-        </li>
-        <li className="nav-option">
-          <button
-            type="button"
-            className="logout-button"
-            onClick={this.onClickLogout}
-          >
-            Logout
-          </button>
-        </li>
-      </ul>
-      <button
-        type="button"
-        className="wrong-button"
-        onClick={this.onClickOptionsHide}
-      >
-        x
-      </button>
-    </div>
-  )
+  onClickHome = () => {
+    this.setState({homeActive: true, cartActive: false})
+  }
+
+  onClickCart = () => {
+    this.setState({homeActive: false, cartActive: true})
+  }
+
+  renderDisplayOptions = () => {
+    const {homeActive, cartActive} = this.state
+
+    const activeHomeClass = homeActive ? 'active' : ''
+
+    const activeCartClass = cartActive ? 'active' : ''
+
+    return (
+      <div className="nav-menu-options">
+        <ul className="nav-menu">
+          <li className="nav-option" onClick={this.onClickHome}>
+            <Link to="/" className={`link-option ${activeHomeClass}`}>
+              Home
+            </Link>
+          </li>
+          <li className="nav-option" onClick={this.onClickCart}>
+            <Link to="/cart" className={`link-option ${activeCartClass}`}>
+              Cart
+            </Link>
+          </li>
+          <li className="nav-option">
+            <button
+              type="button"
+              className="logout-button"
+              onClick={this.onClickLogout}
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+        <button
+          type="button"
+          className="wrong-button"
+          onClick={this.onClickOptionsHide}
+        >
+          x
+        </button>
+      </div>
+    )
+  }
 
   render() {
     const {showOptions} = this.state
     return (
       <nav className="navbar">
         <div className="navbar-content">
-          <Link to="/">
+          <Link to="/" className="link-option">
             <div className="navbar-header">
               <img
                 src="https://res.cloudinary.com/anitha/image/upload/v1638862270/websitelogo_uxorv5.png"

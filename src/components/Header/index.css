@@ -26,6 +26,7 @@
   font-weight: bold;
   font-size: 16px;
   color: #f7931e;
+  text-decoration: none;
 }
 .options-button {
   border: 0 solid;
@@ -65,4 +66,10 @@
   margin-right: 20px;
   background-color: black;
   color: #ffffff;
+}
+.link-option {
+  text-decoration: none;
+}
+.active {
+  color: #f7931e;
 }

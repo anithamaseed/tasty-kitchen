@@ -14,13 +14,13 @@ import './index.css'
 const sortByOptions = [
   {
     id: 0,
-    displayText: 'Highest',
-    value: 'Highest',
+    displayText: 'Lowest',
+    value: 'Lowest',
   },
   {
     id: 1,
-    displayText: 'Lowest',
-    value: 'Lowest',
+    displayText: 'Highest',
+    value: 'Highest',
   },
 ]
 

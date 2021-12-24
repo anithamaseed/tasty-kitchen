@@ -1,25 +1,26 @@
-.empty-cart {
-  padding: 20px;
+.not-found-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 25px;
 }
-.empty-cart-heading {
+.content-heading {
   font-family: DM Sans;
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 20px;
   line-height: 32px;
   text-align: center;
   color: #1e293b;
 }
-.empty-cart-content {
+.content {
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
+  color: #475569;
   text-align: center;
-  color: #64748b;
 }

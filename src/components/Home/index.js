@@ -1,6 +1,7 @@
 import {Component} from 'react'
 
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
 import ReactSlider from '../ReactSlider'
@@ -29,6 +30,7 @@ class Home extends Component {
     restaurantList: [],
     activeOption: sortByOptions[0].value,
     activePage: 1,
+    isLoaded: false,
   }
 
   componentDidMount() {
@@ -70,7 +72,7 @@ class Home extends Component {
         totalReviews: each.user_rating.total_reviews,
       },
     }))
-    this.setState({restaurantList: updatedRestaurantsList})
+    this.setState({restaurantList: updatedRestaurantsList, isLoaded: true})
   }
 
   onChangeSortOption = event => {
@@ -99,46 +101,63 @@ class Home extends Component {
     }
   }
 
-  render() {
+  renderLoadingView = () => (
+    <div
+      className="loader-container-restaurants-list"
+      testid="restaurants-list-loader"
+    >
+      <Loader type="ThreeDots" color="blue" height="50" width="50" />
+    </div>
+  )
+
+  renderRestaurantsView = () => {
     const {restaurantList, activePage} = this.state
     return (
-      <>
-        <Header />
-        <ReactSlider />
-        <div className="home-container">
-          <div className="home-content-container">
-            <h1 className="home-heading">Popular Restaurants</h1>
-            <p className="home-content">
-              Select Your favourite restaurant special dish and make your day
-              happy...
-            </p>
-            <div className="dropdown-section">
-              <img
-                className="sort-by-icon"
-                src="https://res.cloudinary.com/anitha/image/upload/v1639376317/sort_gwdzku.png"
-                alt="sort"
-              />
-              <p className="sort-heading">Sort by </p>
-              <select
-                className="dropdown sort-heading"
-                onChange={this.onChangeSortOption}
-              >
-                {sortByOptions.map(each => (
-                  <SortOptions option={each} key={each.id} />
-                ))}
-              </select>
-            </div>
-
+      <div className="home-container">
+        <div className="home-content-container">
+          <h1 className="home-heading">Popular Restaurants</h1>
+          <p className="home-content">
+            Select Your favourite restaurant special dish and make your day
+            happy...
+          </p>
+          <div className="dropdown-section">
+            <img
+              className="sort-by-icon"
+              src="https://res.cloudinary.com/anitha/image/upload/v1639376317/sort_gwdzku.png"
+              alt="sort"
+            />
+            <p className="sort-heading">Sort by </p>
+            <select
+              className="dropdown sort-heading"
+              onChange={this.onChangeSortOption}
+            >
+              {sortByOptions.map(each => (
+                <SortOptions option={each} key={each.id} />
+              ))}
+            </select>
+          </div>
+          <div testid="restaurant-item">
             {restaurantList.map(eachList => (
               <RestaurantCard details={eachList} key={eachList.id} />
             ))}
           </div>
-          <Counter
-            activePage={activePage}
-            onDecrementPageNumber={this.onDecrementPageNumber}
-            onIncrementPageNumber={this.onIncrementPageNumber}
-          />
         </div>
+        <Counter
+          activePage={activePage}
+          onDecrementPageNumber={this.onDecrementPageNumber}
+          onIncrementPageNumber={this.onIncrementPageNumber}
+        />
+      </div>
+    )
+  }
+
+  render() {
+    const {isLoaded} = this.state
+    return (
+      <>
+        <Header />
+        <ReactSlider />
+        {isLoaded ? this.renderRestaurantsView() : this.renderLoadingView()}
         <Footer />
       </>
     )

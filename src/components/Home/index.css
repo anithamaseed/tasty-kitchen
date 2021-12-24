@@ -53,3 +53,9 @@
   height: 28px;
   margin-right: 3px;
 }
+.loader-container-restaurants-list {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

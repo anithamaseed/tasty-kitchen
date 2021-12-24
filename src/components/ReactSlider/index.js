@@ -2,12 +2,16 @@ import {Component} from 'react'
 import Slider from 'react-slick'
 
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 
 import './index.css'
 import ReactSliderImages from '../ReactSliderImages'
 
 class ReactSlider extends Component {
-  state = {bestOffers: []}
+  state = {
+    bestOffers: [],
+    isLoading: true,
+  }
 
   componentDidMount() {
     this.getBestOffers()
@@ -29,21 +33,30 @@ class ReactSlider extends Component {
       id: each.id,
     }))
 
-    this.setState({bestOffers: offers})
+    this.setState({
+      bestOffers: offers,
+      isLoading: false,
+    })
   }
 
   render() {
-    const {bestOffers} = this.state
+    const {bestOffers, isLoading} = this.state
     const settings = {
       dots: true,
     }
     return (
       <div className="container">
-        <Slider {...settings}>
-          {bestOffers.map(each => (
-            <ReactSliderImages offerDetails={each} key={each.id} />
-          ))}
-        </Slider>
+        {isLoading ? (
+          <div className="loader-container" testid="restaurants-offers-loader">
+            <Loader type="ThreeDots" color="blue" height="50" width="50" />
+          </div>
+        ) : (
+          <Slider {...settings}>
+            {bestOffers.map(each => (
+              <ReactSliderImages offerDetails={each} key={each.id} />
+            ))}
+          </Slider>
+        )}
       </div>
     )
   }

@@ -6,7 +6,7 @@ const CartItem = props => {
   const totalPrice = cost * itemsCount
 
   return (
-    <div className="cart-item">
+    <div className="cart-item" testid="cartItem">
       <img className="cart-product-image" src={imageUrl} alt={name} />
       <div className="cart-item-details-container">
         <p className="cart-product-title">{name}</p>

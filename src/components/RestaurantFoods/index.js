@@ -1,6 +1,7 @@
 import {Component} from 'react'
 
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
 import EachRestaurantDetails from '../EachRestaurantDetails'
@@ -14,6 +15,7 @@ class RestaurantFoods extends Component {
     restaurantLogoData: [],
     restaurantFoodData: [],
     isAddButtonClicked: false,
+    isFoodItemsLoaded: false,
   }
 
   componentDidMount() {
@@ -61,6 +63,7 @@ class RestaurantFoods extends Component {
       this.setState({
         restaurantLogoData: updatedRestaurantLogoData,
         restaurantFoodData: updatedRestaurantFoodsData,
+        isFoodItemsLoaded: true,
       })
       console.log(updatedRestaurantFoodsData)
     }
@@ -71,18 +74,30 @@ class RestaurantFoods extends Component {
       restaurantLogoData,
       restaurantFoodData,
       isAddButtonClicked,
+      isFoodItemsLoaded,
     } = this.state
     return (
       <>
         <Header />
-        <EachRestaurantDetails restaurantLogoData={restaurantLogoData} />
-        {restaurantFoodData.map(eachFoodDetails => (
-          <EachRestaurantFoodDetails
-            key={eachFoodDetails.id}
-            eachFoodDetails={eachFoodDetails}
-            isAddButtonClicked={isAddButtonClicked}
-          />
-        ))}
+        {isFoodItemsLoaded ? (
+          <div>
+            <EachRestaurantDetails restaurantLogoData={restaurantLogoData} />
+            {restaurantFoodData.map(eachFoodDetails => (
+              <EachRestaurantFoodDetails
+                key={eachFoodDetails.id}
+                eachFoodDetails={eachFoodDetails}
+                isAddButtonClicked={isAddButtonClicked}
+              />
+            ))}
+          </div>
+        ) : (
+          <div
+            className="loader-container-restaurants-list"
+            testid="restaurant-details-loader"
+          >
+            <Loader type="tail" color="blue" height="50" width="50" />
+          </div>
+        )}
         <Footer />
       </>
     )

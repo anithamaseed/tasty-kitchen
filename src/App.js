@@ -1,42 +1,23 @@
-import {Route, Switch} from 'react-router-dom'
-
-import {Component} from 'react'
-
-import CartContext from './context/CartContext'
+import {Route, Switch, Redirect} from 'react-router-dom'
 
 import Home from './components/Home'
 import LoginForm from './components/LoginForm'
 import ProtectedRoute from './components/ProtectedRoute'
 import RestaurantFoods from './components/RestaurantFoods'
 import Cart from './components/Cart'
+import NotFound from './components/NotFound'
 
 import './App.css'
 
-class App extends Component {
-  state = {cartList: []}
-
-  addCartItem = item => {
-    this.setState(prevState => ({cartList: [...prevState.cartList, item]}))
-  }
-
-  render() {
-    const {cartList} = this.state
-    console.log(cartList)
-    return (
-      <CartContext.Provider value={{cartList, addCartItem: this.addCartItem}}>
-        <Switch>
-          <Route exact path="/login" component={LoginForm} />
-          <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute
-            exact
-            path="/restaurant/:id"
-            component={RestaurantFoods}
-          />
-          <ProtectedRoute exact path="/cart" component={Cart} />
-        </Switch>
-      </CartContext.Provider>
-    )
-  }
-}
+const App = () => (
+  <Switch>
+    <Route exact path="/login" component={LoginForm} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/restaurant/:id" component={RestaurantFoods} />
+    <ProtectedRoute exact path="/cart" component={Cart} />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect to="not-found" />
+  </Switch>
+)
 
 export default App

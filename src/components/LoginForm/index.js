@@ -81,28 +81,45 @@ class LoginForm extends Component {
       return <Redirect to="/l" />
     }
     return (
-      <>
-        <div className="login-container">
-          <h1 className="login-heading">Login</h1>
+      <div className="login-container-with-logo">
+        <div className="login-container-form">
+          <div className="login-website-logo">
+            <img
+              src="https://res.cloudinary.com/anitha/image/upload/v1638862270/websitelogo_uxorv5.png"
+              alt="website logo"
+              className="website-logo"
+            />
+            <h1 className="login-nav-heading">Tasty Kitchens</h1>
+          </div>
+          <div className="login-container">
+            <h1 className="login-heading">Login</h1>
+            <img
+              alt="website login"
+              className="login-image"
+              src="https://res.cloudinary.com/anitha/image/upload/v1638515643/Rectangle_1457_xl7gdq.jpg"
+            />
+          </div>
+          <form className="form-container" onSubmit={this.onSubmitForm}>
+            {this.renderUsername()}
+            {this.renderPassword()}
+            {showErrorMsg && (
+              <p className="error-msg">
+                Please enter a valid Username and Password
+              </p>
+            )}
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          </form>
+        </div>
+        <div className="login-image-container">
           <img
-            alt="website login"
-            className="login-image"
-            src="https://res.cloudinary.com/anitha/image/upload/v1638515643/Rectangle_1457_xl7gdq.jpg"
+            src="https://res.cloudinary.com/anitha/image/upload/v1640501237/Rectangle_1456_kplgli.png"
+            alt="website logo"
+            className="login-image-container"
           />
         </div>
-        <form className="form-container" onSubmit={this.onSubmitForm}>
-          {this.renderUsername()}
-          {this.renderPassword()}
-          {showErrorMsg && (
-            <p className="error-msg">
-              Please enter a valid Username and Password
-            </p>
-          )}
-          <button type="submit" className="login-button">
-            Login
-          </button>
-        </form>
-      </>
+      </div>
     )
   }
 }

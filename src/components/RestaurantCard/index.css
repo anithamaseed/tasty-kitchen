@@ -3,6 +3,7 @@
   height: 120px;
   align-items: center;
   text-decoration: none;
+  margin: 0;
 }
 
 .restaurant-logo {
@@ -62,4 +63,10 @@
 }
 .restaurant-card-link {
   text-decoration: none;
+}
+@media screen and (min-width: 764px) {
+  .restaurant-card-container {
+    width: 250px;
+    margin: 10px;
+  }
 }

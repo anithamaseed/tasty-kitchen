@@ -114,12 +114,14 @@ class Home extends Component {
     const {restaurantList, activePage} = this.state
     return (
       <div className="home-container">
-        <div className="home-content-container">
-          <h1 className="home-heading">Popular Restaurants</h1>
-          <p className="home-content">
-            Select Your favourite restaurant special dish and make your day
-            happy...
-          </p>
+        <div className="home-content-container-and-sort-by">
+          <div className="home-content-container">
+            <h1 className="home-heading">Popular Restaurants</h1>
+            <p className="home-content">
+              Select Your favourite restaurant special dish and make your day
+              happy...
+            </p>
+          </div>
           <div className="dropdown-section">
             <img
               className="sort-by-icon"
@@ -136,12 +138,12 @@ class Home extends Component {
               ))}
             </select>
           </div>
-          <div testid="restaurant-item">
-            {restaurantList.map(eachList => (
-              <RestaurantCard details={eachList} key={eachList.id} />
-            ))}
-          </div>
         </div>
+        <ul testid="restaurant-item" className="ul-restaurant-name-menu">
+          {restaurantList.map(eachList => (
+            <RestaurantCard details={eachList} key={eachList.id} />
+          ))}
+        </ul>
         <Counter
           activePage={activePage}
           onDecrementPageNumber={this.onDecrementPageNumber}
@@ -154,12 +156,12 @@ class Home extends Component {
   render() {
     const {isLoaded} = this.state
     return (
-      <>
+      <div className="home-page">
         <Header />
         <ReactSlider />
         {isLoaded ? this.renderRestaurantsView() : this.renderLoadingView()}
         <Footer />
-      </>
+      </div>
     )
   }
 }

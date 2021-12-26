@@ -2,3 +2,16 @@
   width: 100vw;
   height: 250px;
 }
+.best-offer-container-img {
+  width: 100vw;
+}
+
+@media screen and (min-width: 764px) {
+  .best-offer-img {
+    width: 90%;
+    text-align: center;
+  }
+  .best-offer-container-img {
+    text-align: center;
+  }
+}

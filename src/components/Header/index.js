@@ -39,36 +39,27 @@ class Header extends Component {
     const activeCartClass = cartActive ? 'active' : ''
 
     return (
-      <div className="nav-menu-options">
-        <ul className="nav-menu">
-          <li className="nav-option" onClick={this.onClickHome}>
-            <Link to="/" className={`link-option ${activeHomeClass}`}>
-              Home
-            </Link>
-          </li>
-          <li className="nav-option" onClick={this.onClickCart}>
-            <Link to="/cart" className={`link-option ${activeCartClass}`}>
-              Cart
-            </Link>
-          </li>
-          <li className="nav-option">
-            <button
-              type="button"
-              className="logout-button"
-              onClick={this.onClickLogout}
-            >
-              Logout
-            </button>
-          </li>
-        </ul>
-        <button
-          type="button"
-          className="wrong-button"
-          onClick={this.onClickOptionsHide}
-        >
-          x
-        </button>
-      </div>
+      <ul className="nav-menu">
+        <li className="nav-option" onClick={this.onClickHome}>
+          <Link to="/" className={`link-option ${activeHomeClass}`}>
+            Home
+          </Link>
+        </li>
+        <li className="nav-option" onClick={this.onClickCart}>
+          <Link to="/cart" className={`link-option ${activeCartClass}`}>
+            Cart
+          </Link>
+        </li>
+        <li className="nav-option">
+          <button
+            type="button"
+            className="logout-button"
+            onClick={this.onClickLogout}
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
     )
   }
 
@@ -98,8 +89,22 @@ class Header extends Component {
               alt="bars"
             />
           </button>
+          <div className="desktop-view-nav-options">
+            {this.renderDisplayOptions()}
+          </div>
         </div>
-        {showOptions && this.renderDisplayOptions()}
+        {showOptions && (
+          <div className="nav-menu-options">
+            {this.renderDisplayOptions()}
+            <button
+              type="button"
+              className="wrong-button"
+              onClick={this.onClickOptionsHide}
+            >
+              x
+            </button>
+          </div>
+        )}
       </nav>
     )
   }

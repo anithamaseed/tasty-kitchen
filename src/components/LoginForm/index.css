@@ -38,6 +38,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
 }
 .login-button {
   background: #f7931e;
@@ -54,4 +55,85 @@
   color: #ef4444;
   font-family: DM Sans;
   font-size: 12px;
+}
+.login-image-container {
+  display: none;
+}
+.login-website-logo {
+  display: none;
+}
+@media screen and (min-width: 764px) {
+  .login-image {
+    display: none;
+  }
+  .login-heading {
+    text-align: center;
+    width: 100%;
+  }
+  .login-container-with-logo {
+    display: flex;
+  }
+  .login-image-container {
+    width: 50vw;
+    display: block;
+  }
+  .login-container-form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-website-logo {
+    display: block;
+    text-align: center;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+  }
+  .login-nav-heading {
+    font-family: DM Sans;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 22px;
+    color: #f7931e;
+    text-decoration: none;
+  }
+  .login-input-label {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .error-msg {
+    color: #ef4444;
+    font-family: DM Sans;
+    font-size: 16px;
+  }
+  .login-input {
+    height: 40px;
+    background-color: #e2e8f0;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 0px;
+    padding-left: 12px;
+    font-size: 16px;
+  }
+
+  .login-button {
+    background: #f7931e;
+    border-radius: 5px;
+    border: 0 solid;
+    color: #ffffff;
+    font-family: DM Sans;
+    font-size: 16px;
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+  }
 }

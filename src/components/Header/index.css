@@ -31,6 +31,7 @@
 .options-button {
   border: 0 solid;
   background-color: transparent;
+  display: inline;
 }
 .nav-menu-options {
   width: 100vw;
@@ -72,4 +73,18 @@
 }
 .active {
   color: #f7931e;
+}
+.desktop-view-nav-options {
+  display: none;
+}
+@media screen and (min-width: 764px) {
+  .options-button {
+    display: none;
+  }
+  .desktop-view-nav-options {
+    display: inline;
+  }
+  .nav-menu {
+    width: 40vw;
+  }
 }

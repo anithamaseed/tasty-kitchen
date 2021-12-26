@@ -82,13 +82,15 @@ class RestaurantFoods extends Component {
         {isFoodItemsLoaded ? (
           <div>
             <EachRestaurantDetails restaurantLogoData={restaurantLogoData} />
-            {restaurantFoodData.map(eachFoodDetails => (
-              <EachRestaurantFoodDetails
-                key={eachFoodDetails.id}
-                eachFoodDetails={eachFoodDetails}
-                isAddButtonClicked={isAddButtonClicked}
-              />
-            ))}
+            <ul className="each-restaurant-food-items-menu">
+              {restaurantFoodData.map(eachFoodDetails => (
+                <EachRestaurantFoodDetails
+                  key={eachFoodDetails.id}
+                  eachFoodDetails={eachFoodDetails}
+                  isAddButtonClicked={isAddButtonClicked}
+                />
+              ))}
+            </ul>
           </div>
         ) : (
           <div

@@ -4,6 +4,10 @@ const ReactSliderImages = props => {
   const {offerDetails} = props
   const {imageUrl} = offerDetails
 
-  return <img src={imageUrl} alt="offer" className="best-offer-img" />
+  return (
+    <div className="best-offer-container-img">
+      <img src={imageUrl} alt="offer" className="best-offer-img" />
+    </div>
+  )
 }
 export default ReactSliderImages

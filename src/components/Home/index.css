@@ -59,3 +59,35 @@
   justify-content: center;
   align-items: center;
 }
+.ul-restaurant-name-menu {
+  list-style-type: none;
+  list-style-position: initial;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 764px) {
+  .home-page {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .home-content-container-and-sort-by {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .dropdown-section {
+    display: flex;
+    align-items: center;
+    min-width: 20vw;
+  }
+  .ul-restaurant-name-menu {
+    list-style-type: none;
+    list-style-position: initial;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

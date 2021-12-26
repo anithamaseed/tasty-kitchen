@@ -43,7 +43,7 @@ class EachRestaurantFoodDetails extends Component {
     const {eachFoodDetails} = this.props
     const {name, rating, cost, imageUrl} = eachFoodDetails
     return (
-      <div className="restaurant-food-container" testid="foodItem">
+      <li className="restaurant-food-container" testid="foodItem">
         <div className="restaurant-card-image">
           <img
             src={imageUrl}
@@ -97,7 +97,7 @@ class EachRestaurantFoodDetails extends Component {
             </button>
           )}
         </div>
-      </div>
+      </li>
     )
   }
 }

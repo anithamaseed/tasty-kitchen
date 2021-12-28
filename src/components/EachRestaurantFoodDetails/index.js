@@ -3,7 +3,7 @@ import {Component} from 'react'
 import './index.css'
 
 class EachRestaurantFoodDetails extends Component {
-  state = {isAddButtonClicked: false, itemsCount: 1}
+  state = {isAddButtonClicked: false, itemsCount: 0}
 
   addItemsToCart = () => {
     const {eachFoodDetails} = this.props
@@ -15,27 +15,55 @@ class EachRestaurantFoodDetails extends Component {
     if (cartData === null) {
       updatedCartList = [item]
     } else {
-      updatedCartList = [...cartData, item]
+      const filteredData = cartData.filter(
+        eachItemData => eachItemData.id !== eachFoodDetails.id,
+      )
+      updatedCartList = [...filteredData, item]
     }
     localStorage.setItem('cartData', JSON.stringify(updatedCartList))
     console.log(updatedCartList)
   }
 
+  removeItemsFromCart = () => {
+    const {eachFoodDetails} = this.props
+    const stringifiedCartList = localStorage.getItem('cartData')
+    const cartData = JSON.parse(stringifiedCartList)
+    const filteredData = cartData.filter(
+      eachItemData => eachItemData.id !== eachFoodDetails.id,
+    )
+    const updatedCartList = [...filteredData]
+    localStorage.setItem('cartData', JSON.stringify(updatedCartList))
+  }
+
   onClickAddButton = () => {
-    this.setState({isAddButtonClicked: true}, this.addItemsToCart)
+    this.setState(
+      {isAddButtonClicked: true, itemsCount: 1},
+      this.addItemsToCart,
+    )
   }
 
   onClickDecreaseItems = () => {
     const {itemsCount} = this.state
     if (itemsCount > 1) {
-      this.setState(prevState => ({
-        itemsCount: prevState.itemsCount - 1,
-      }))
+      this.setState(
+        prevState => ({
+          itemsCount: prevState.itemsCount - 1,
+        }),
+        this.addItemsToCart,
+      )
+    } else {
+      this.setState(
+        {isAddButtonClicked: false, itemsCount: 0},
+        this.removeItemsFromCart,
+      )
     }
   }
 
   onClickIncreaseItems = () => {
-    this.setState(prevState => ({itemsCount: prevState.itemsCount + 1}))
+    this.setState(
+      prevState => ({itemsCount: prevState.itemsCount + 1}),
+      this.addItemsToCart,
+    )
   }
 
   render() {
@@ -64,29 +92,27 @@ class EachRestaurantFoodDetails extends Component {
               <p className="restaurant-card-rating">{rating}</p>
             </div>
           </div>
-          <div className="add-sub-view">
-            <button
-              type="button"
-              onClick={this.onClickDecreaseItems}
-              testid="decrement-count"
-            >
-              -
-            </button>
-            <p testid="active-count" className="food-count">
-              {itemsCount}
-            </p>
-            <button
-              type="button"
-              onClick={this.onClickIncreaseItems}
-              testid="increment-count"
-            >
-              +
-            </button>
-          </div>
+
           {isAddButtonClicked ? (
-            <button type="button" className="add-btn">
-              Added To Cart
-            </button>
+            <div className="add-sub-view">
+              <button
+                type="button"
+                onClick={this.onClickDecreaseItems}
+                testid="decrement-count"
+              >
+                -
+              </button>
+              <p testid="active-count" className="food-count">
+                {itemsCount}
+              </p>
+              <button
+                type="button"
+                onClick={this.onClickIncreaseItems}
+                testid="increment-count"
+              >
+                +
+              </button>
+            </div>
           ) : (
             <button
               type="button"

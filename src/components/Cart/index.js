@@ -26,7 +26,7 @@ class Cart extends Component {
     return (
       <>
         <Header />
-        {cartData === null ? (
+        {cartData.length === 0 ? (
           <div className="empty-cart">
             <img
               src="https://res.cloudinary.com/anitha/image/upload/v1640346346/OBJECTS_pvnaht.png"

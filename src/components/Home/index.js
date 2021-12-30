@@ -31,6 +31,7 @@ class Home extends Component {
     activeOption: sortByOptions[0].value,
     activePage: 1,
     isLoaded: false,
+    activeLink: 'home',
   }
 
   componentDidMount() {
@@ -154,10 +155,10 @@ class Home extends Component {
   }
 
   render() {
-    const {isLoaded} = this.state
+    const {isLoaded, activeLink} = this.state
     return (
       <div className="home-page">
-        <Header />
+        <Header active={activeLink} />
         <ReactSlider />
         {isLoaded ? this.renderRestaurantsView() : this.renderLoadingView()}
         <Footer />

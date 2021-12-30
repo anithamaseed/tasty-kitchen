@@ -7,7 +7,9 @@ import {Component} from 'react'
 import './index.css'
 
 class Header extends Component {
-  state = {showOptions: false, homeActive: true, cartActive: false}
+  state = {
+    showOptions: false,
+  }
 
   onClickLogout = () => {
     const {history} = this.props
@@ -23,29 +25,21 @@ class Header extends Component {
     this.setState({showOptions: true})
   }
 
-  onClickHome = () => {
-    this.setState({homeActive: true, cartActive: false})
-  }
-
-  onClickCart = () => {
-    this.setState({homeActive: false, cartActive: true})
-  }
-
   renderDisplayOptions = () => {
-    const {homeActive, cartActive} = this.state
+    const {active} = this.props
 
-    const activeHomeClass = homeActive ? 'active' : ''
+    const activeHomeClass = active === 'home' ? 'active' : ''
 
-    const activeCartClass = cartActive ? 'active' : ''
+    const activeCartClass = active === 'cart' ? 'active' : ''
 
     return (
       <ul className="nav-menu">
-        <li className="nav-option" onClick={this.onClickHome}>
+        <li className="nav-option">
           <Link to="/" className={`link-option ${activeHomeClass}`}>
             Home
           </Link>
         </li>
-        <li className="nav-option" onClick={this.onClickCart}>
+        <li className="nav-option">
           <Link to="/cart" className={`link-option ${activeCartClass}`}>
             Cart
           </Link>

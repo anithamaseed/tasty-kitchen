@@ -3,12 +3,14 @@
   margin: 12px;
 }
 .cart-product-image {
+  display: block;
   height: 120px;
-  width: 200px;
+  width: 180px;
   border-radius: 12px;
   margin: 5px;
 }
 .cart-product-title {
+  display: inline;
   font-family: DM Sans;
   font-style: normal;
   font-weight: 500;
@@ -21,4 +23,104 @@
   font-weight: bold;
   font-size: 16px;
   color: #ffa412;
+  width: 100px;
+  text-align: center;
+}
+.cart-item-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.desktop-img-name {
+  display: flex;
+  width: 200px;
+}
+.desktop-cart-product-title {
+  display: none;
+}
+.desktop-cart-heading-list-menu {
+  display: none;
+}
+.add-sub-view {
+  width: 100px;
+  text-align: center;
+}
+@media screen and (min-width: 764px) {
+  .cart-item {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .desktop-cart-heading-list-menu {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+  }
+  .cart-total-price {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffa412;
+    width: 20vw;
+    text-align: center;
+  }
+  .add-sub-view {
+    width: 20vw;
+    text-align: center;
+  }
+  .desktop-cart-heading-list-details {
+    width: 20vw;
+    text-align: center;
+  }
+  .desktop-cart-heading-list-quantity {
+    width: 20vw;
+    text-align: center;
+  }
+  .cart-item-details-container {
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .desktop-img-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+  }
+  .desktop-cart-heading-list-item {
+    display: block;
+    text-align: center;
+    width: 35vw;
+  }
+  .desktop-cart-product-title {
+    display: block;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #183b56;
+    width: 145px;
+    margin: 2px;
+  }
+  .cart-product-title {
+    display: none;
+  }
+  .desktop-cart-bg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .desktop-cart-container {
+    width: 80vw;
+    background: #f9fbfe;
+    border: 1px solid rgba(11, 105, 255, 0.1);
+  }
 }

@@ -11,7 +11,7 @@ const EachRestaurantDetails = props => {
     reviewsCount,
   } = restaurantLogoData
   return (
-    <div className="restaurant-logo-container">
+    <div className="restaurant-logo-container" testid="restaurant-item">
       <img src={imageUrl} alt="restaurant" className="each-restaurant-logo" />
       <div className="each-restaurant-logo-content">
         <h1 className="each-restaurant-name">{name}</h1>

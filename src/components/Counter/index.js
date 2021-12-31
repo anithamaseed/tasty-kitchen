@@ -31,7 +31,7 @@ const Counter = props => {
         type="button"
         onClick={onIncrement}
         className="counter-button"
-        testid="pagination-left-button"
+        testid="pagination-right-button"
       >
         <img
           src="https://res.cloudinary.com/anitha/image/upload/v1639479986/Icon_v18uoy.png"

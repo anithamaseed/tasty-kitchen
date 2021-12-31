@@ -157,12 +157,14 @@ class Home extends Component {
   render() {
     const {isLoaded, activeLink} = this.state
     return (
-      <div className="home-page">
-        <Header active={activeLink} />
-        <ReactSlider />
-        {isLoaded ? this.renderRestaurantsView() : this.renderLoadingView()}
+      <>
+        <div className="home-page">
+          <Header active={activeLink} />
+          <ReactSlider />
+          {isLoaded ? this.renderRestaurantsView() : this.renderLoadingView()}
+        </div>
         <Footer />
-      </div>
+      </>
     )
   }
 }

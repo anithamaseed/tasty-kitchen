@@ -64,43 +64,33 @@ class CartItem extends Component {
     const {name, cost, imageUrl} = cartItemDetails
 
     return (
-      <li className="desktop-cart-bg-container">
-        <div className="desktop-cart-container" testid="cartItem">
-          <ul className="desktop-cart-heading-list-menu">
-            <li className="desktop-cart-heading-list-item">Item</li>
-            <li className="desktop-cart-heading-list-quantity">Quantity</li>
-            <li className="desktop-cart-heading-list-details">Price</li>
-          </ul>
-          <div className="cart-item">
-            <div className="desktop-img-name">
-              <img className="cart-product-image" src={imageUrl} alt={name} />
-              <p className="desktop-cart-product-title">{name}</p>
-            </div>
-            <div className="cart-item-details-container">
-              <p className="cart-product-title">{name}</p>
-              <div className="add-sub-view">
-                <button
-                  type="button"
-                  onClick={this.onClickDecreaseCount}
-                  testid="decrement-quantity"
-                >
-                  -
-                </button>
-                <p testid="active-count" className="food-count">
-                  {cartItemsCount}
-                </p>
-
-                <button
-                  type="button"
-                  onClick={this.onClickIncreaseCount}
-                  testid="increment-quantity"
-                >
-                  +
-                </button>
-              </div>
-              <p className="cart-total-price">₹ {cost * cartItemsCount}/-</p>
-            </div>
+      <li className="desktop-cart-bg-container" testid="cartItem">
+        <div className="desktop-img-name">
+          <img className="cart-product-image" src={imageUrl} alt={name} />
+          <h1 className="desktop-cart-product-title">{name}</h1>
+        </div>
+        <div className="cart-item-details-container">
+          <h1 className="cart-product-title">{name}</h1>
+          <div className="add-sub-view">
+            <button
+              type="button"
+              onClick={this.onClickDecreaseCount}
+              testid="decrement-quantity"
+            >
+              -
+            </button>
+            <p testid="item-quantity" className="food-count">
+              {cartItemsCount}
+            </p>
+            <button
+              type="button"
+              onClick={this.onClickIncreaseCount}
+              testid="increment-quantity"
+            >
+              +
+            </button>
           </div>
+          <p className="cart-total-price">₹ {cost * cartItemsCount}/-</p>
         </div>
       </li>
     )

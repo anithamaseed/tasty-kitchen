@@ -66,6 +66,15 @@
   flex-direction: column;
 }
 @media screen and (min-width: 764px) {
+  .ul-restaurant-name-menu {
+    list-style-type: none;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+  }
   .home-page {
     padding-left: 5vw;
     padding-right: 5vw;
@@ -80,14 +89,5 @@
     display: flex;
     align-items: center;
     min-width: 20vw;
-  }
-  .ul-restaurant-name-menu {
-    list-style-type: none;
-    list-style-position: initial;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
   }
 }

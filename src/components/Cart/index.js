@@ -27,7 +27,7 @@ class Cart extends Component {
         src="https://res.cloudinary.com/anitha/image/upload/v1640346346/OBJECTS_pvnaht.png"
         alt="empty cart"
       />
-      <h1 className="empty-cart-heading">No Orders Yet!</h1>
+      <h1 className="empty-cart-heading">No Order Yet!</h1>
       <p className="empty-cart-content">
         Your cart is empty. Add something from the menu.
       </p>
@@ -51,13 +51,11 @@ class Cart extends Component {
         Thank you for ordering <br />
         Your payment is successfully completed.
       </p>
-      <button
-        type="button"
-        className="home-page-btn"
-        onClick={this.onClickForHomePage}
-      >
-        Go To Home Page
-      </button>
+      <Link to="/">
+        <button type="button" className="home-page-btn">
+          Go To Home Page
+        </button>
+      </Link>
     </div>
   )
 
@@ -69,41 +67,48 @@ class Cart extends Component {
     const {cartList} = this.state
     let totalAmount = 0
     return (
-      <div>
-        <h1 className="cart-heading">My Cart</h1>
-        <ul className="cart-list">
-          {cartList.map(eachCartItem => {
-            totalAmount =
-              eachCartItem.cost * eachCartItem.itemsCount + totalAmount
-            return (
-              <div>
-                <CartItem
-                  key={eachCartItem.id}
-                  cartItemDetails={eachCartItem}
-                  onChangeCartList={this.onChangeCartList}
-                />
-              </div>
-            )
-          })}
-          <hr className="h-line" />
-          <div className="order-section">
-            <p className="order-total">Order Total : </p>
-            <p testid="total-price" className="order-total">
-              ₹ {totalAmount}.00
-            </p>
+      <>
+        <div className="cart-bg-app-container">
+          <h1 className="cart-heading">My Cart</h1>
+          <div className="desktop-cart-container">
+            <ul className="desktop-cart-heading-list-menu">
+              <li className="desktop-cart-heading-list-item">Item</li>
+              <li className="desktop-cart-heading-list-quantity">Quantity</li>
+              <li className="desktop-cart-heading-list-details">Price</li>
+            </ul>
+            <ul className="cart-list">
+              {cartList.map(eachCartItem => {
+                totalAmount =
+                  eachCartItem.cost * eachCartItem.itemsCount + totalAmount
+                return (
+                  <CartItem
+                    key={eachCartItem.id}
+                    cartItemDetails={eachCartItem}
+                    onChangeCartList={this.onChangeCartList}
+                  />
+                )
+              })}
+            </ul>
+            <hr className="h-line" />
+            <div className="order-section">
+              <h1 className="order-total">Order Total:</h1>
+              <p testid="total-price" className="order-total">
+                ₹ {totalAmount}.00
+              </p>
+            </div>
           </div>
-        </ul>
-        <div className="place-order-btn-section">
-          <button
-            type="button"
-            className="place-order-btn"
-            onClick={this.onClickPlaceOrder}
-          >
-            Place Order
-          </button>
+          <div className="place-order-btn-section">
+            <button
+              type="button"
+              className="place-order-btn"
+              onClick={this.onClickPlaceOrder}
+            >
+              Place Order
+            </button>
+          </div>
         </div>
         <Footer />
-      </div>
+      </>
     )
   }
 

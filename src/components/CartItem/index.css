@@ -105,19 +105,7 @@
     text-align: center;
     width: 35vw;
   }
-  .desktop-cart-product-title {
-    display: block;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: #183b56;
-    width: 145px;
-    margin: 2px;
-  }
-  .cart-product-title {
-    display: none;
-  }
+
   .desktop-cart-bg-container {
     display: flex;
     justify-content: center;

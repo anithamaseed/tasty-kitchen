@@ -67,7 +67,6 @@ class CartItem extends Component {
       <li className="desktop-cart-bg-container" testid="cartItem">
         <div className="desktop-img-name">
           <img className="cart-product-image" src={imageUrl} alt={name} />
-          <h1 className="desktop-cart-product-title">{name}</h1>
         </div>
         <div className="cart-item-details-container">
           <h1 className="cart-product-title">{name}</h1>
@@ -79,7 +78,7 @@ class CartItem extends Component {
             >
               -
             </button>
-            <p testid="item-quantity" className="food-count">
+            <p className="food-count" testid="item-quantity">
               {cartItemsCount}
             </p>
             <button

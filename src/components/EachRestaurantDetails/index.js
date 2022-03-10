@@ -7,6 +7,7 @@ const EachRestaurantDetails = props => {
     location,
     rating,
     name,
+    cuisine,
     costForTwo,
     reviewsCount,
   } = restaurantLogoData
@@ -15,6 +16,7 @@ const EachRestaurantDetails = props => {
       <img src={imageUrl} alt="restaurant" className="each-restaurant-logo" />
       <div className="each-restaurant-logo-content">
         <h1 className="each-restaurant-name">{name}</h1>
+        <p className="restaurant-location">{cuisine}</p>
         <p className="restaurant-location">{location}</p>
         <div className="rating-cost">
           <div>

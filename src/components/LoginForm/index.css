@@ -72,6 +72,7 @@
   }
   .login-container-with-logo {
     display: flex;
+    min-height: 100vh;
   }
   .login-image-container {
     width: 50vw;

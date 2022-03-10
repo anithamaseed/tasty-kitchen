@@ -6,7 +6,7 @@ import Cookies from 'js-cookie'
 import './index.css'
 
 class LoginForm extends Component {
-  state = {username: '', password: '', showErrorMsg: false}
+  state = {username: '', password: '', showErrorMsg: false, errorMsg: ''}
 
   onChangeUsername = event => {
     this.setState({username: event.target.value})
@@ -70,23 +70,24 @@ class LoginForm extends Component {
       Cookies.set('jwt_token', jwtToken, {expires: 30})
       history.replace('/')
     } else {
-      this.setState({showErrorMsg: true})
+      this.setState({showErrorMsg: true, errorMsg: data.error_msg})
+      console.log(data.error_msg)
     }
   }
 
   render() {
-    const {showErrorMsg} = this.state
+    const {showErrorMsg, errorMsg} = this.state
     const token = Cookies.get('jwt_token')
     if (token !== undefined) {
-      return <Redirect to="/l" />
+      return <Redirect to="/" />
     }
     return (
       <div className="login-container-with-logo">
         <div className="login-container-form">
           <div className="login-website-logo">
             <img
-              src="https://res.cloudinary.com/anitha/image/upload/v1638862270/websitelogo_uxorv5.png"
               alt="website logo"
+              src="https://res.cloudinary.com/anitha/image/upload/v1638862270/websitelogo_uxorv5.png"
               className="website-logo"
             />
             <h1 className="login-nav-heading">Tasty Kitchens</h1>
@@ -102,11 +103,7 @@ class LoginForm extends Component {
           <form className="form-container" onSubmit={this.onSubmitForm}>
             {this.renderUsername()}
             {this.renderPassword()}
-            {showErrorMsg && (
-              <p className="error-msg">
-                Please enter a valid Username and Password
-              </p>
-            )}
+            {showErrorMsg && <p className="error-msg">{errorMsg}</p>}
             <button type="submit" className="login-button">
               Login
             </button>
@@ -115,7 +112,7 @@ class LoginForm extends Component {
         <div className="login-image-container">
           <img
             src="https://res.cloudinary.com/anitha/image/upload/v1640501237/Rectangle_1456_kplgli.png"
-            alt="website logo"
+            alt="website log"
             className="login-image-container"
           />
         </div>

@@ -140,7 +140,7 @@ class Home extends Component {
             </select>
           </div>
         </div>
-        <ul testid="restaurant-item" className="ul-restaurant-name-menu">
+        <ul className="ul-restaurant-name-menu">
           {restaurantList.map(eachList => (
             <RestaurantCard details={eachList} key={eachList.id} />
           ))}
